@@ -1,0 +1,525 @@
+<!DOCTYPE HTML>
+<!--
+	Legacy International Child Care
+	Professional Childcare and Bilingual Education
+-->
+<html>
+	<head>
+		<title>Legacy International Child Care | Lehi, Utah</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			:root {
+				--primary: #e3211e;
+				--secondary: #f9c911;
+				--accent: #51adec;
+				--success: #299c35;
+			}
+			
+			.hero-image {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 35%;
+				height: 100%;
+				object-fit: contain;
+				object-position: right center;
+				z-index: 1;
+			}
+			
+			#intro {
+				position: relative;
+			}
+			
+			#intro .inner {
+				position: relative;
+				z-index: 2;
+				max-width: 65%;
+			}
+			
+			@media (max-width: 768px) {
+				.hero-image {
+					position: relative;
+					width: 80%;
+					height: auto;
+					max-width: 400px;
+					object-fit: contain;
+					object-position: center center;
+					z-index: 2;
+					opacity: 1;
+					margin: 0 auto 2rem auto;
+					display: block;
+					border-radius: 12px;
+					box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+					background: white;
+					padding: 8px;
+				}
+				
+				#intro {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					text-align: center;
+				}
+				
+				#intro .inner {
+					max-width: 100%;
+					padding: 2rem;
+					border-radius: 8px;
+					position: relative;
+					z-index: 2;
+				}
+			}
+			
+			.gallery {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 20px;
+				margin-bottom: 2rem;
+			}
+			
+			.gallery-item {
+				overflow: hidden;
+				border-radius: 8px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				aspect-ratio: 2 / 3;
+			}
+			
+			.gallery-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+			}
+			
+			.gallery-item img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				display: block;
+				background-color: #f5f5f5;
+			}
+			
+			@media (max-width: 768px) {
+				.gallery {
+					grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+					gap: 15px;
+				}
+			}
+			
+			@media (max-width: 480px) {
+				.gallery {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 10px;
+				}
+				
+				.gallery-item {
+					aspect-ratio: 1 / 1;
+				}
+			}
+			
+			.features section h3 {
+				color: var(--success) !important;
+			}
+			
+			.testimonial-avatar {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				margin-right: 0.8rem;
+				vertical-align: middle;
+				object-fit: cover;
+				display: inline-block;
+			}
+			
+			.language-toggle-container {
+				position: fixed;
+				top: 20px;
+				right: 20px;
+				z-index: 1000;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 8px;
+			}
+
+			.language-toggle {
+				position: relative;
+				width: 70px;
+				height: 40px;
+				background: var(--success);
+				border: none;
+				border-radius: 20px;
+				cursor: pointer;
+				transition: background 0.3s ease;
+				padding: 0;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+			}
+
+			.language-toggle::after {
+				content: '';
+				position: absolute;
+				width: 32px;
+				height: 32px;
+				background: white !important;
+				border-radius: 50%;
+				top: 2px;
+				left: 2px;
+				transition: left 0.3s ease;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+				z-index: 10 !important;
+				opacity: 1 !important;
+				display: block !important;
+			}
+
+			.language-toggle:hover {
+				box-shadow: 0 4px 12px rgb(255, 255, 255);
+			}
+
+			.language-toggle.es::after {
+				left: 30px;
+			}
+
+			.language-toggle.es {
+				background: var(--secondary);
+			}
+
+			.language-label {
+				color: white;
+				font-weight: bold;
+				font-size: 12px;
+				min-width: 40px;
+				text-align: center;
+			}
+
+			#langLabel {
+				color: black;
+				padding: 4px 8px;
+				border-radius: 12px;
+				font-size: 11px;
+			}
+
+			@media (max-width: 768px) {
+				.language-toggle-container {
+					top: 10px;
+					right: 10px;
+				}
+
+				.language-label {
+					font-size: 11px;
+					min-width: 35px;
+				}
+
+				.language-toggle {
+					width: 60px;
+					height: 32px;
+				}
+
+				.language-toggle::after {
+					width: 28px;
+					height: 28px;
+				}
+
+				.language-toggle.es::after {
+					left: 30px;
+				}
+				
+				ul.actions {
+					-moz-justify-content: center;
+					-webkit-justify-content: center;
+					-ms-justify-content: center;
+					justify-content: center;
+				}
+			}
+		</style>
+	</head>
+	<body class="is-preload" data-lang="en">
+
+		<!-- Language Toggle -->
+		<div class="language-toggle-container">
+			<button class="language-toggle" id="langToggle"></button>
+			<span class="language-label" id="langLabel">English</span>
+		</div>
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro" data-en="Welcome" data-es="Inicio">Welcome</a></li>
+							<li><a href="#one" data-en="Who We Are" data-es="Quiénes Somos">Who We Are</a></li>
+							<li><a href="#two" data-en="Our Services" data-es="Nuestros Servicios">Our Services</a></li>
+							<li><a href="#three" data-en="Testimonials" data-es="Testimonios">Testimonials</a></li>
+							<li><a href="#facilities" data-en="Our Facilities" data-es="Nuestras Instalaciones">Our Facilities</a></li>
+							<li><a href="#four" data-en="Get in Touch" data-es="Contacto">Get in Touch</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<img src="images/hero.png" alt="Legacy International Child Care" class="hero-image" />
+						<div class="inner">
+							<h1 data-en="Legacy International Child Care" data-es="Legacy International Child Care">Legacy International Child Care</h1>
+							<p>
+								<span data-en="Excellence in Bilingual Childcare Education" data-es="Excelencia en Educación Infantil Bilingüe">Excellence in Bilingual Childcare Education</span><br />
+								<span data-en="Serving the Lehi Community with Montessori Methodology" data-es="Sirviendo a la Comunidad de Lehi con Metodología Montessori">Serving the Lehi Community with Montessori Methodology</span><br />
+							</p>
+							<ul class="actions">
+								<li><a href="#one" class="button scrolly" data-en="Learn more" data-es="Aprende más">Learn more</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- One: Who We Are -->
+					<section id="one" class="wrapper style2 spotlights">
+						<section>
+							<a href="#" class="image"><img src="images/pic02.png" alt="" data-position="center center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2 data-en="Our Mission" data-es="Nuestra Misión">Our Mission</h2>
+									<p data-en="Legacy International offers educational services that guarantee the safety of your children by providing quality education, promoting the stages of development: cognitive, affective, social, language, sensory and motor development, which is stimulated through supervised play activities. Recognizing that children achieve their maximum potential in the context of relationships based on trust and respect, as we appreciate childhood as a unique and valuable stage in the life cycle of the human being." data-es="Legacy International ofrece servicios educativos que garantizan la seguridad de sus hijos proporcionando educación de calidad, promoviendo las etapas del desarrollo: desarrollo cognitivo, afectivo, social, lingüístico, sensorial y motor, que se estimula a través de actividades de juego supervisadas. Reconociendo que los niños logran su máximo potencial en el contexto de relaciones basadas en confianza y respeto, ya que apreciamos la infancia como una etapa única y valiosa en el ciclo de vida del ser humano.">Legacy International offers educational services that guarantee the safety of your children by providing quality education, promoting the stages of development: cognitive, affective, social, language, sensory and motor development, which is stimulated through supervised play activities. Recognizing that children achieve their maximum potential in the context of relationships based on trust and respect, as we appreciate childhood as a unique and valuable stage in the life cycle of the human being.</p>
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="images/pic01.png" alt="" data-position="top center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2 data-en="Our Vision" data-es="Nuestra Visión">Our Vision</h2>
+									<p data-en="Provide personalized attention working with small groups, to develop the learning areas of our students according to their age. We create a family atmosphere in our daycare with the objective of facilitating the adaptation process, to create a daycare chain in the cities surrounding Lehi. We guarantee safety under the care and supervision of trained personnel with English and Spanish training, maintaining fluid and easily accessible communication with our parents." data-es="Proporcionar atención personalizada trabajando con grupos pequeños, para desarrollar las áreas de aprendizaje de nuestros estudiantes según su edad. Creamos una atmósfera familiar en nuestro centro con el objetivo de facilitar el proceso de adaptación, para crear una cadena de centros en las ciudades que rodean a Lehi. Garantizamos la seguridad bajo el cuidado y supervisión de personal capacitado con capacitación en inglés y español, manteniendo una comunicación fluida y fácilmente accesible con nuestros padres.">Provide personalized attention working with small groups, to develop the learning areas of our students according to their age. We create a family atmosphere in our daycare with the objective of facilitating the adaptation process, to create a daycare chain in the cities surrounding Lehi. We guarantee safety under the care and supervision of trained personnel with English and Spanish training, maintaining fluid and easily accessible communication with our parents.</p>
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="images/pic03.png" alt="" data-position="25% 25%" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2 data-en="Quality & Care" data-es="Calidad y Cuidado">Quality & Care</h2>
+									<p data-en="Every child deserves the best start in life. Our experienced team is dedicated to providing a safe, nurturing, and stimulating environment where children can grow, learn, and thrive with personalized attention." data-es="Cada niño merece el mejor comienzo en la vida. Nuestro equipo experimentado se dedica a proporcionar un ambiente seguro, acogedor y estimulante donde los niños pueden crecer, aprender y prosperar con atención personalizada.">Every child deserves the best start in life. Our experienced team is dedicated to providing a safe, nurturing, and stimulating environment where children can grow, learn, and thrive with personalized attention.</p>
+								</div>
+							</div>
+						</section>
+					</section>
+
+				<!-- Two: What We Offer -->
+					<section id="two" class="wrapper style3 fade-up">
+						<div class="inner">
+							<h2 data-en="What We Offer" data-es="Qué Ofrecemos">What We Offer</h2>
+							<p data-en="Comprehensive childcare services with bilingual education and personalized attention for your child's development." data-es="Servicios completos de cuidado infantil con educación bilingüe y atención personalizada para el desarrollo de su hijo.">Comprehensive childcare services with bilingual education and personalized attention for your child's development.</p>
+							<div class="features">
+								<section>
+									<span class="icon solid major fa-globe"></span>
+									<h3 data-en="Bilingual Education" data-es="Educación Bilingüe">Bilingual Education</h3>
+									<p data-en="English and Spanish instruction providing a strong foundation for global communication skills." data-es="Instrucción en inglés y español proporcionando una base sólida para habilidades de comunicación global.">English and Spanish instruction providing a strong foundation for global communication skills.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-book"></span>
+									<h3 data-en="Montessori Methodology" data-es="Metodología Montessori">Montessori Methodology</h3>
+									<p data-en="Proven educational approach emphasizing independence, self-directed learning, and child-led discovery." data-es="Enfoque educativo comprobado que enfatiza la independencia, el aprendizaje autodirigido y el descubrimiento dirigido por el niño.">Proven educational approach emphasizing independence, self-directed learning, and child-led discovery.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-users"></span>
+									<h3 data-en="Small Group Attention" data-es="Atención en Grupos Pequeños">Small Group Attention</h3>
+									<p data-en="Personalized care in small groups ensuring each child receives individual attention and support." data-es="Cuidado personalizado en grupos pequeños asegurando que cada niño reciba atención individual y apoyo.">Personalized care in small groups ensuring each child receives individual attention and support.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-heart"></span>
+									<h3 data-en="Holistic Development" data-es="Desarrollo Integral">Holistic Development</h3>
+									<p data-en="Development of linguistic, social, intellectual, physical, and emotional areas of learning." data-es="Desarrollo de áreas lingüísticas, sociales, intelectuales, físicas y emocionales de aprendizaje.">Development of linguistic, social, intellectual, physical, and emotional areas of learning.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-utensils"></span>
+									<h3 data-en="Healthy Nutrition" data-es="Nutrición Saludable">Healthy Nutrition</h3>
+									<p data-en="Balanced, nutritious meals supporting healthy growth and development." data-es="Comidas balanceadas y nutritivas que apoyan el crecimiento saludable y el desarrollo.">Balanced, nutritious meals supporting healthy growth and development.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-mobile-alt"></span>
+									<h3 data-en="BrightWheel App" data-es="Aplicación BrightWheel">BrightWheel App</h3>
+									<p data-en="Real-time communication with parents through our digital platform for daily updates and engagement." data-es="Comunicación en tiempo real con los padres a través de nuestra plataforma digital para actualizaciones e interacción diaria.">Real-time communication with parents through our digital platform for daily updates and engagement.</p>
+								</section>
+							</div>
+							
+						</div>
+					</section>
+
+				<!-- Three: Testimonials -->
+					<section id="three" class="wrapper style2 fade-up">
+						<div class="inner">
+							<h2 data-en="What Parents Say" data-es="Lo que Dicen los Padres">What Parents Say</h2>
+							<div class="testimonials">
+								<blockquote>
+									<p data-en="I love the personalized care and attention my daughters receive. I have a 3 year old and 5 month old enrolled and they are both so happy here. There is no greater peace of mind for my mom heart than knowing they are well taken care of, it's priceless. We literally did not move homes due to our satisfaction with this daycare. All the staff is wonderful." data-es="Me encanta el cuidado personalizado y la atención que reciben mis hijas. Tengo una niña de 3 años y un bebé de 5 meses inscritos y ambos son muy felices aquí. No hay mayor tranquilidad para mi corazón de mamá que saber que están bien cuidados, es invaluable. Literalmente no nos mudamos de casa debido a nuestra satisfacción con este centro. Todo el personal es maravilloso.">"I love the personalized care and attention my daughters receive. I have a 3 year old and 5 month old enrolled and they are both so happy here. There is no greater peace of mind for my mom heart than knowing they are well taken care of, it's priceless. We literally did not move homes due to our satisfaction with this daycare. All the staff is wonderful."</p>
+									<footer><img src="images/avatar-woman-1.png" alt="Andrea Yzaguirre" class="testimonial-avatar">— Andrea Yzaguirre</footer>
+								</blockquote>
+								<blockquote>
+									<p data-en="Legacy is the best! Both of my kids are very well taken care of. My first child has been going here for about 3 years. He's loved it since day one. I love that they treat each child as if they were part of a family. I highly recommend this place!" data-es="¡Legacy es lo mejor! Ambos mis hijos están muy bien cuidados. Mi primer hijo ha estado viniendo aquí durante unos 3 años. Le ha encantado desde el primer día. Me encanta que traten a cada niño como si fuera parte de la familia. ¡Altamente recomiendo este lugar!">"Legacy is the best! Both of my kids are very well taken care of. My first child has been going here for about 3 years. He's loved it since day one. I love that they treat each child as if they were part of a family. I highly recommend this place!"</p>
+									<footer><img src="images/avatar-woman-2.png" alt="Carolina Zambrano" class="testimonial-avatar">— Carolina Zambrano</footer>
+								</blockquote>
+								<blockquote>
+									<p data-en="We have loved sending our daughter here! They do a great job of making daycare an easy and fun experience for our child. Our minds have been put to ease because Dunia and her team truly care for all the children. Could not recommend enough!" data-es="¡Nos ha encantado enviar a nuestra hija aquí! Hacen un excelente trabajo haciendo que el cuidado infantil sea una experiencia fácil y divertida para nuestro hijo. Nuestra mente ha sido tranquilizada porque Dunia y su equipo realmente se preocupan por todos los niños. ¡No puedo recomendar lo suficiente!">"We have loved sending our daughter here! They do a great job of making daycare an easy and fun experience for our child. Our minds have been put to ease because Dunia and her team truly care for all the children. Could not recommend enough!"</p>
+									<footer><img src="images/avatar-woman-1.png" alt="Naomi Antazena" class="testimonial-avatar">— Naomi Antazena</footer>
+								</blockquote>
+								<blockquote>
+									<p data-en="My experience with this daycare has been exceptional! The staff is not only professional but also incredibly caring, providing a nurturing environment for the little ones. The engaging activities and educational focus make it a top choice for any parent seeking a place where their child can thrive." data-es="Mi experiencia con este centro ha sido excepcional. El personal no solo es profesional sino también increíblemente dedicado, proporcionando un ambiente acogedor para los pequeños. Las actividades atractivas y el enfoque educativo lo hacen una opción principal para cualquier padre que busque un lugar donde su hijo pueda prosperar.">"My experience with this daycare has been exceptional! The staff is not only professional but also incredibly caring, providing a nurturing environment for the little ones. The engaging activities and educational focus make it a top choice for any parent seeking a place where their child can thrive."</p>
+									<footer><img src="images/avatar-man-1.png" alt="Ricardo Flores" class="testimonial-avatar">— Ricardo Flores</footer>
+								</blockquote>
+							</div>
+						</div>
+					</section>
+
+				<!-- Facilities Gallery -->
+					<section id="facilities" class="wrapper style3 fade-up">
+						<div class="inner">
+							<h2 data-en="Our Facilities" data-es="Nuestras Instalaciones">Our Facilities</h2>
+							<p data-en="Come see our beautiful, safe, and stimulating learning environment designed for your child's growth and development." data-es="Venga a ver nuestro hermoso, seguro y estimulante ambiente de aprendizaje diseñado para el crecimiento y desarrollo de su hijo.">Come see our beautiful, safe, and stimulating learning environment designed for your child's growth and development.</p>
+							<div class="gallery">
+								<div class="gallery-item">
+									<a href="#" class="image"><img src="images/facility-1.jpeg" alt="Classroom" /></a>
+								</div>
+								<div class="gallery-item">
+									<a href="#" class="image"><img src="images/facility-4.jpeg" alt="Play Area" /></a>
+								</div>
+								<div class="gallery-item">
+									<a href="#" class="image"><img src="images/facility-3.jpeg" alt="Learning Space" /></a>
+								</div>
+								
+							</div>
+							<ul class="actions">
+								<li><a href="https://calendly.com/legacyinternationalut/30min" class="button" data-en="Schedule a Tour" data-es="Agendar una Visita">Schedule a Tour</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- Four: Contact -->
+					<section id="four" class="wrapper style1 fade-up">
+						<div class="inner">
+							<h2 data-en="Get in Touch" data-es="Contacto">Get in Touch</h2>
+							<p data-en="Contact us today to learn more about our programs or to schedule a tour." data-es="Contáctenos hoy para obtener más información sobre nuestros programas o para agendar una visita.">Contact us today to learn more about our programs or to schedule a tour.</p>
+							<div class="split style1">
+								<section>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="name" data-en="Name" data-es="Nombre">Name</label>
+												<input type="text" name="name" id="name" />
+											</div>
+											<div class="field half">
+												<label for="email" data-en="Email" data-es="Correo Electrónico">Email</label>
+												<input type="text" name="email" id="email" />
+											</div>
+											<div class="field">
+												<label for="message" data-en="Message" data-es="Mensaje">Message</label>
+												<textarea name="message" id="message" rows="5"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><a href="" class="button submit" data-en="Send Message" data-es="Enviar Mensaje">Send Message</a></li>
+										</ul>
+									</form>
+								</section>
+								<section>
+									<ul class="contact">
+										<li>
+											<h3 data-en="Location" data-es="Ubicación">Location</h3>
+											<span data-en="Lehi, Utah" data-es="Lehi, Utah">Lehi, Utah</span>
+										</li>
+										<li>
+											<h3 data-en="Email" data-es="Correo Electrónico">Email</h3>
+											<a href="mailto:Legacyinternationalut@gmail.com">Legacyinternationalut@gmail.com</a>
+										</li>
+										<li>
+											<h3 data-en="Phone" data-es="Teléfono">Phone</h3>
+											<span>
+												<span data-en="Spanish:" data-es="Español:">Spanish:</span> (801) 885-0343<br />
+												<span data-en="English:" data-es="Inglés:">English:</span> (801) 885-6188
+											</span>
+										</li>
+										<li>
+											<h3 data-en="Social Media" data-es="Redes Sociales">Social Media</h3>
+											<ul class="icons">
+												<li><a href="https://www.facebook.com/Legacy-International-Child-Care" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+												<li><a href="https://www.instagram.com/legacyinternationalut" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+											</ul>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Legacy International Child Care. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			
+			<script>
+				const langToggle = document.getElementById('langToggle');
+				const langLabel = document.getElementById('langLabel');
+				const body = document.body;
+
+				function changeLanguage(lang) {
+					body.setAttribute('data-lang', lang);
+					localStorage.setItem('language', lang);
+					
+					// Update all elements with data attributes
+					document.querySelectorAll('[data-en]').forEach(el => {
+						const enText = el.getAttribute('data-en');
+						const esText = el.getAttribute('data-es');
+						const textToUse = lang === 'es' ? esText : enText;
+						
+						if (textToUse) {
+							// For elements with only text nodes (no HTML children), update directly
+							if (!el.querySelector('*')) {
+								el.textContent = textToUse;
+							} else {
+								// For elements with HTML children, update innerHTML carefully
+								// Only update if the new text doesn't contain HTML
+								if (!textToUse.includes('<')) {
+									el.textContent = textToUse;
+								}
+							}
+						}
+					});
+					
+					if (lang === 'es') {
+						langToggle.classList.add('es');
+						langLabel.textContent = 'Español';
+					} else {
+						langToggle.classList.remove('es');
+						langLabel.textContent = 'English';
+					}
+				}
+
+				langToggle.addEventListener('click', () => {
+					const currentLang = body.getAttribute('data-lang');
+					changeLanguage(currentLang === 'en' ? 'es' : 'en');
+				});
+
+				// Load saved language preference
+				const savedLang = localStorage.getItem('language') || 'en';
+				changeLanguage(savedLang);
+			</script>
+
+	</body>
+</html>
